@@ -67,7 +67,7 @@ export default function NumberLottery() {
 
       {/* Main Content */}
       <main className="flex items-center justify-center px-6 py-12">
-        <Card className="w-full max-w-2xl bg-white/90 backdrop-blur-xl shadow-xl border border-gray-200/50 rounded-2xl">
+        <Card className="w-full max-w-3xl bg-white/90 backdrop-blur-xl shadow-xl border border-gray-200/50 rounded-2xl">
           <CardContent className="p-8">
             {/* Title */}
             <div className="text-center mb-10">
