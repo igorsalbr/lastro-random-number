@@ -25,7 +25,7 @@ export default function NumberLottery() {
       // Animação de contagem regressiva
       for (let i = 3; i > 0; i--) {
         setDrawnNumbers([i]);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
     }
 
@@ -48,7 +48,17 @@ export default function NumberLottery() {
       }
     }
 
-    setDrawnNumbers(numbers);
+    if (animationEnabled) {
+      // Revelar números progressivamente
+      setDrawnNumbers([]);
+      for (let i = 0; i < numbers.length; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        setDrawnNumbers(numbers.slice(0, i + 1));
+      }
+    } else {
+      setDrawnNumbers(numbers);
+    }
+    
     setIsDrawing(false);
   };
 
@@ -183,8 +193,13 @@ export default function NumberLottery() {
                   {drawnNumbers.map((number, index) => (
                     <div
                       key={index}
-                      className="bg-primary text-primary-foreground text-2xl font-bold w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl animate-bounce border-4 border-white/20"
-                      style={{ animationDelay: `${index * 0.15}s` }}
+                      className="bg-primary text-primary-foreground text-2xl font-bold w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl border-4 border-white/20 transform transition-all duration-500 ease-out"
+                      style={{ 
+                        animationDelay: `${index * 0.1}s`,
+                        animationDuration: '0.6s',
+                        animationFillMode: 'both',
+                        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                      }}
                     >
                       {number}
                     </div>
