@@ -141,7 +141,7 @@ export default function NumberLottery() {
                 <Switch
                   checked={animationEnabled}
                   onCheckedChange={setAnimationEnabled}
-                  className="data-[state=checked]:bg-blue-600"
+                  className="data-[state=checked]:bg-primary"
                 />
               </div>
 
@@ -157,7 +157,7 @@ export default function NumberLottery() {
                 <Switch
                   checked={noRepeat}
                   onCheckedChange={setNoRepeat}
-                  className="data-[state=checked]:bg-blue-600"
+                  className="data-[state=checked]:bg-primary"
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function NumberLottery() {
             <Button
               onClick={drawNumbers}
               disabled={isDrawing}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-6 text-lg font-semibold rounded-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:scale-100 shadow-lg hover:shadow-xl disabled:opacity-70"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-semibold rounded-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:scale-100 shadow-lg hover:shadow-xl disabled:opacity-70"
             >
               {isDrawing ? "Sorteando..." : "🎲 Sortear números"}
             </Button>
@@ -183,7 +183,7 @@ export default function NumberLottery() {
                   {drawnNumbers.map((number, index) => (
                     <div
                       key={index}
-                      className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white text-2xl font-bold w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl animate-bounce border-4 border-white/20"
+                      className="bg-primary text-primary-foreground text-2xl font-bold w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl animate-bounce border-4 border-white/20"
                       style={{ animationDelay: `${index * 0.15}s` }}
                     >
                       {number}
